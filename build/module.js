@@ -58,8 +58,10 @@
   });
 
   if (!_.arg('file')) {
-    file = process.argv.pop();
-    if (!_.exists(file)) {
+    if (process.argv.length < 3) {
+      throw new Error('`--file` required');
+    }
+    if (!_.exists(file = process.argv.pop())) {
       throw new Error('`--file` required');
     }
   } else {
@@ -113,7 +115,7 @@
             return r = arguments[1];
           };
         })(),
-        lineno: 47
+        lineno: 49
       }));
       __iced_deferrals._fulfill();
     });
