@@ -7,9 +7,13 @@ _ = require('wegweg')({
 })
 
 if !_.arg('file')
-  throw new Error '`--file` required'
+  file = process.argv.pop()
+  if !_.exists(file)
+    throw new Error '`--file` required'
+else
+  file = _.arg 'file'
 
-file = _.resolve(_.arg 'file')
+file = _.resolve(file)
 
 if !_.exists(file)
   throw new Error 'File noexists'
