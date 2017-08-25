@@ -14,14 +14,14 @@ file = _.resolve(_.arg 'file')
 if !_.exists(file)
   throw new Error 'File noexists'
 
-creds = require __dirname + '/../config'
+conf = require __dirname + '/../config'
 
 ##
 aws = require 'aws-sdk'
 
 aws.config.update({
-  accessKeyId: creds.access
-  secretAccessKey: creds.secret
+  accessKeyId: conf.ACCESS
+  secretAccessKey: conf.SECRET
 })
 
 s3 = new aws.S3()
@@ -34,20 +34,16 @@ new_filename = (do =>
 )
 
 opt = {
-  Bucket: conf.s3.bucket
-  Key: conf.bucket + '/' + new_filename
+  Bucket: conf.BUCKET
+  Key: new_filename
   ContentType: _.mime(new_filename)
   ACL: 'public-read'
+  Body: require('fs').readFileSync(file)
 }
 
-log _.fns(s3)
+await s3.upload opt, defer e,r
+if e then throw e
+
+log r.Location
 exit 0
-
-await s3.getSignedUrl 'putObject', opt, defer e,r
-if e then return next e
-
-##
-if !module.parent
-  log /DEVEL/
-  process.exit 0
 
