@@ -10,6 +10,7 @@
   ],
   "dependencies": {
     "aws-sdk": "^2.103.0",
+    "iced-coffee-script": "^108.0.11",
     "wegweg": "^0.16.0"
   }
 }
