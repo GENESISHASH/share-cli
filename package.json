@@ -9,6 +9,7 @@
     "taky"
   ],
   "dependencies": {
+    "aws-sdk": "^2.103.0",
     "wegweg": "^0.16.0"
   }
 }
