@@ -6,9 +6,15 @@ _ = require('wegweg')({
   shelljs: on
 })
 
-module.exports = lib = {
+if !_.arg('file')
+  throw new Error '`--file` required'
 
-}
+file = _.resolve(_.arg 'file')
+
+if !_.exists(file)
+  throw new Error 'File noexists'
+
+# @todo: share file..
 
 ##
 if !module.parent
