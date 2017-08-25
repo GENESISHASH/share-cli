@@ -14,7 +14,10 @@ file = _.resolve(_.arg 'file')
 if !_.exists(file)
   throw new Error 'File noexists'
 
+creds = JSON.parse(__dirname + '/../config.json')
+
 # @todo: share file..
+# ..
 
 ##
 if !module.parent
