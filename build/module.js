@@ -106,7 +106,7 @@
   (function(_this) {
     return (function(__iced_k) {
       __iced_deferrals = new iced.Deferrals(__iced_k, {
-        filename: "/Users/douglaslauer/www/share-cli/src/module.iced"
+        filename: "/home/taky/www/share-cli/src/module.iced"
       });
       s3.upload(opt, __iced_deferrals.defer({
         assign_fn: (function() {
