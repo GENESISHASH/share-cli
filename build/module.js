@@ -99,14 +99,13 @@
     Bucket: conf.BUCKET,
     Key: new_filename,
     ContentType: _.mime(new_filename),
-    ACL: 'public-read',
     Body: require('fs').readFileSync(file)
   };
 
   (function(_this) {
     return (function(__iced_k) {
       __iced_deferrals = new iced.Deferrals(__iced_k, {
-        filename: "/home/taky/www/share-cli/src/module.iced"
+        filename: "/Users/taky/www/share-cli/src/module.iced"
       });
       s3.upload(opt, __iced_deferrals.defer({
         assign_fn: (function() {
@@ -115,7 +114,7 @@
             return r = arguments[1];
           };
         })(),
-        lineno: 49
+        lineno: 48
       }));
       __iced_deferrals._fulfill();
     });

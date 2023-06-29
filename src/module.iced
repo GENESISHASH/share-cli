@@ -43,7 +43,6 @@ opt = {
   Bucket: conf.BUCKET
   Key: new_filename
   ContentType: _.mime(new_filename)
-  ACL: 'public-read'
   Body: require('fs').readFileSync(file)
 }
 
